@@ -21,9 +21,9 @@ $(function() {
   function askUser(a, b) {
     $('#input').hide();
     $('#ask').show();
-    $('#ask_a span').text(a);
+    $('#ask_a span img').attr('src', a);
     $('#ask_a').prop('text', a);
-    $('#ask_b span').text(b);
+    $('#ask_b span img').attr('src', b);
     $('#ask_b').prop('text', b);
   }
 
@@ -43,7 +43,8 @@ $(function() {
     $('#results_list').html('');
     $('#explicit_count').text(matrix.explicitCount);
     _(items).each(function(item) {
-      $('<li />').appendTo($('#results_list')).text(item);
+      var li = $('<li />').appendTo($('#results_list'));
+      $('<img />').appendTo(li).attr('src', item);
     });
   }
 
